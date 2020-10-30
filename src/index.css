@@ -75,6 +75,7 @@ code {
 
 #mainNavbar .nav-link {
   color: white;
+  text-align: center;
 }
 
 #mainNavbar .nav-link:hover {
