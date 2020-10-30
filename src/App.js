@@ -9,6 +9,7 @@ function App() {
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/movie/:id" component={MovieDatils} />
+      <Route render={() => <h1>404 Error not found!</h1>} />
     </Switch>
   </main>
   );

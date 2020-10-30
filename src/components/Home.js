@@ -1,10 +1,9 @@
 import React, { useEffect, useState, } from 'react';
 import { fetchGenre, fetchMovies, fetchMovieByGenre, fetchPersons, fetchTopratedMovie, fetchByName } from '../service';
-import Carousel from "react-bootstrap/Carousel";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 import { Link } from 'react-router-dom';
 import ReactStars from "react-rating-stars-component";
-import notavailable from "../../src/notavailable.jpg";
+import Postermovies from './Postermovies';
 
 
  function Home() {
@@ -30,13 +29,7 @@ import notavailable from "../../src/notavailable.jpg";
         fetchAPI();
     }, []);
 
-    const randomIndex = (max) => {
-        return Math.floor(Math.random() * Math.floor(max));
-    }
-
-    let startIndex = randomIndex(15);
-    let endIndex = startIndex + 5;
-
+    
     const handleGenreClick = async (genre_id) => {
         setmoviesByGenre(await fetchMovieByGenre(genre_id));
     }
@@ -53,8 +46,6 @@ import notavailable from "../../src/notavailable.jpg";
          setMoviesByName(await fetchByName(e.target.value));
         }
       }
-
-   const posterMovies = nowPlaying.slice(startIndex, endIndex).map((item) =>  item);
 
    const genreList = genres.map((item, index) => {
     return (
@@ -148,52 +139,12 @@ import notavailable from "../../src/notavailable.jpg";
     return ( 
         <>
           {isBusy ? (
-              <div>Loading..</div>
+              <div></div>
           ) : (
           <div className="container">
           <div className="row">
               <div className="col">
-              <Carousel>
-                <Carousel.Item> 
-                    <Link to={`/movie/${posterMovies[0].id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <img
-                    className="d-block w-100"
-                    src={posterMovies[0].backPoster}
-                    alt="First slide"
-                    />    
-                    </Link>
-                    <Carousel.Caption style={{background: "rgba(0, 0, 0, 0.7)", borderRadius: "25px", padding: "10px"}}>
-                     <h3 >{posterMovies[0].title}</h3>
-                    <p >{posterMovies[0].overview}</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                     <Link to={`/movie/${posterMovies[0].id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <img
-                    className="d-block w-100"
-                    src={posterMovies[4].backPoster}
-                    alt="Third slide"
-                    />
-                     </Link>
-                    <Carousel.Caption style={{background: "rgba(0, 0, 0, 0.7)", borderRadius: "25px", padding: "10px" }}>
-                    <h3>{posterMovies[4].title}</h3>
-                    <p >{posterMovies[4].overview}</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <Link to={`/movie/${posterMovies[0].id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <img
-                    className="d-block w-100"
-                    src={posterMovies[3].backPoster}
-                    alt="Third slide"
-                    />
-                    </Link>
-                    <Carousel.Caption style={{background: "rgba(0, 0, 0, 0.7)", borderRadius: "25px", padding: "10px" }}>
-                    <h3>{posterMovies[3].title}</h3>
-                    <p>{posterMovies[3].overview}</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                </Carousel>
+                <Postermovies nowPlaying={nowPlaying} />
               </div>
           </div>
 

@@ -6,6 +6,8 @@ import ReactPlayer from 'react-player';
 import ReactStars from 'react-rating-stars-component';
 import {Link} from "react-router-dom";
 import avatar from "../../src/notavailable.jpg";
+import {withRouter} from "react-router-dom";
+import NavbarComponent from "./NavbarComponent";
 
 
 function MovieDeatils({match}) {
@@ -25,6 +27,7 @@ function MovieDeatils({match}) {
             setCasts(await fetchMovieCasts(params.id));
             setSimilarMovies(await fetchSimilarMovie(params.id));
             setisBusy(false);
+            window.scrollTo(0,0);
         };
 
         fetchAPI();
@@ -50,6 +53,7 @@ function MovieDeatils({match}) {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body style={{backgroundColor: '00000'}}>
+                {video ?
                 <ReactPlayer
                 className="container-fluid"
                 url={youtubeUrl + video.key}
@@ -58,6 +62,7 @@ function MovieDeatils({match}) {
                 controls="true"
                 >
                 </ReactPlayer>
+                : <div style={{color: "black", fontWeight: 'bolder'}}>No video available! :(</div>}
             </Modal.Body>
            </Modal> 
         )
@@ -110,13 +115,16 @@ function MovieDeatils({match}) {
         )
     })
 
+
     return(
         <>
          {isBusy ? (
-              <div>Loading..</div>
+              <div></div>
           ) : (
+        <>
+        <NavbarComponent />
         <div className="container">
-            <div className="row mt-2">
+            <div className="row">
                 <MoviePlayerModal
                 show={isOpen}
                 onHide={() => {
@@ -134,7 +142,7 @@ function MovieDeatils({match}) {
                             </i>
                         </div>   
                         <div className="carousel-caption" >
-                            <h2>{detail.title}</h2>
+                            <h2 className="d-none d-md-block">{detail.title}</h2>
                             <p></p>
                         </div>
                     </div>
@@ -142,6 +150,7 @@ function MovieDeatils({match}) {
 
             <div className="row mt-3">
                 <div className="col">
+                 
                     <p style={{color: '#5a606b', fontWeight: "bolder"}}>GENRE</p>
                 </div>
             </div>
@@ -234,9 +243,10 @@ function MovieDeatils({match}) {
 
 
         </div>
+        </>
         )}
     </>
     );
 }
 
-export default MovieDeatils;
+export default withRouter(MovieDeatils);

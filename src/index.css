@@ -65,3 +65,34 @@ code {
 .poster-text {
   text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
 }
+
+
+#mainNavbar {
+  font-size: 1.5rem;
+  font-weight: 100;
+  background-color:rgba(0, 0, 0, 0.5);    
+}
+
+#mainNavbar .nav-link {
+  color: white;
+}
+
+#mainNavbar .nav-link:hover {
+  color: #f4c10f;
+}
+
+#mainNavbar .navbar-brand {
+  color: #f4c10f;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+#headingGroup span {
+  color: #f4c10f;
+}
+
+#headingGroup h1 {
+  font-weight: 100;
+  font-size: 4rem;
+}
+
