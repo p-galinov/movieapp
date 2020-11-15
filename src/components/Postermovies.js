@@ -12,9 +12,9 @@ import { Link } from 'react-router-dom';
     let startIndex = randomIndex(15);
     let endIndex = startIndex + 5;
 
-    const posterMovies = nowPlaying.slice(startIndex, endIndex).map((item) =>  {
+    const posterMovies = nowPlaying.slice(startIndex, endIndex).map((item, index) =>  {
         return (
-         <Carousel.Item> 
+         <Carousel.Item key={index}> 
              <Link to={`/movie/${item.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
              <img
              className="d-block w-100"

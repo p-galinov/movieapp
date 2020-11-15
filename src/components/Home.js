@@ -14,6 +14,7 @@ import Postermovies from './Postermovies';
     const [persons, setPersons] = useState([]);
     const [topRated, setToprated] = useState([]);
     const [moviesByName, setMoviesByName] = useState([]);
+    const [searchMessage, setSearchMessage] = useState();
     const [name, setName] = useState();
 
     useEffect(() => {
@@ -44,6 +45,9 @@ import Postermovies from './Postermovies';
     const  search = async (e) => {
         if(e.key === "Enter") {
          setMoviesByName(await fetchByName(e.target.value));
+         if(moviesByName.length === 0){
+             setSearchMessage("Nothing was found :(");
+         }
         }
       }
 
@@ -85,15 +89,15 @@ import Postermovies from './Postermovies';
     })
    }
 
-   const movieList = moviesByGenre.slice(0, 4).map((item, index) => {
+   const movieList = moviesByGenre.slice(0, 8).map((item, index) => {
        return (
-           <div className="col-md-3 col-sm-6" key={index}>
+           <div className="col-md-3 col-sm-6 mt-3" key={index}>
                <div className="card">
                     <Link to={`/movie/${item.id}`}>
                     <img className="img-fluid" src={item.poster} alt={item.title}></img>
                     </Link>
                </div>
-                <div className="mt-2">
+                <div className="mt-1">
                     <p style={{fontWeight: 'bolder'}}>{item.title}</p>
                     <p>Rated: {item.rating}</p>
                     <ReactStars
@@ -167,7 +171,9 @@ import Postermovies from './Postermovies';
             </div> 
  
             
-            {searchResults && searchResults.length > 0 ? (<div className="font-weight-bold" style={{color: '#5a606b'}}>Search results:</div>) : ""}
+            {searchResults && searchResults.length > 0 ? (<div className="font-weight-bold" style={{color: '#5a606b'}}>Search results:</div>) 
+            : (<div className="font-weight-bold" style={{color: '#5a606b'}}> {searchMessage} </div>) }
+
             <div className="row mt-3"> {searchResults} </div>
 
             <div className="row mt-3">
