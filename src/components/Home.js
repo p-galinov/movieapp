@@ -170,19 +170,10 @@ import Postermovies from './Postermovies';
                 </div>   
             </div> 
  
-            
             {searchResults && searchResults.length > 0 ? (<div className="font-weight-bold" style={{color: '#5a606b'}}>Search results:</div>) 
             : (<div className="font-weight-bold" style={{color: '#5a606b'}}> {searchMessage} </div>) }
 
             <div className="row mt-3"> {searchResults} </div>
-
-            <div className="row mt-3">
-                <div className="col">
-                    <div className="float-right">
-                        <i className="fa fa-arrow-alt-circle-right"></i>
-                    </div>
-                </div>
-            </div>
             
             <div className="row mt-3">
                 {movieList}
@@ -197,28 +188,12 @@ import Postermovies from './Postermovies';
             </div>
 
             <div className="row mt-3">
-                <div className="col">
-                    <div className="float-right">
-                        <i className="fa fa-arrow-alt-circle-right"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div className="row mt-3">
                 {trendingPersons}
             </div>
 
             <div className="row mt-3">
                 <div className="col">
                     <p className="font-weight-bold" style={{color: '#5a606b'}}>TOP RATED MOVIES</p>
-                </div>
-            </div>
-
-            <div className="row mt-3">
-                <div className="col">
-                    <div className="float-right">
-                        <i className="fa fa-arrow-alt-circle-right"></i>
-                    </div>
                 </div>
             </div>
 
