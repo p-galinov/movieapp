@@ -219,11 +219,11 @@ function MovieDeatils({match}) {
             <div className="row mt-3 mb-5">
                 <div className="col-md-8 col-sm-6" style={{color:"#5a606b"}}>
                     <h3>ABOUT ME</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
+                    <p>I can build modern responsive fully functional websites. I have experience with HTML5, CSS3, Javascript (ES6), React.js, Node.js, Express, MongoDB, Netlify, Heroku, Git, Github, Webflow, Figma, Bootstrap 4.</p>
+                    <p>If you like my work I'm currently looking for a job. You can email me directly at plamen955@gmail.com.</p>
                     <ul className="list-inline">
                         <li className="list-inline-item">
-                           <a href="/" style={{color: "#f4c10f"}}>
+                           <a href="https://plamen-drumev.netlify.app" style={{color: "#f4c10f"}}>
                                <i className="fab fa-github"></i>
                            </a>
                         </li>

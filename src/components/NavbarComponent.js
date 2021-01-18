@@ -9,10 +9,10 @@ function NavbarComponent() {
                 <li className="nav-item ">
                 <Link exact to='/' className="nav-link ">Home</Link></li>
                 <li className="nav-item">
-                    <a href="/" class="nav-link ">About</a>
+                    <a href="https://plamen-drumev.netlify.app" class="nav-link ">Portfolio</a>
                 </li>
                 <li className="nav-item navbar-right">
-                    <a href="/" className="nav-link">Conctact</a>
+                    <a href="mailto:plamen955@gmail.com" className="nav-link">Conctact</a>
                 </li>
             </ul>
         </div>
