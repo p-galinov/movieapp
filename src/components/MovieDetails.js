@@ -141,7 +141,7 @@ function MovieDeatils({match}) {
                             onClick={() => setIsOpen(true)}>
                             </i>
                         </div>   
-                        <div className="carousel-caption" style={{background: "rgba(0, 0, 0, 0.7)", borderRadius: "25px", padding: "10px"}} >
+                        <div className="carousel-caption d-none d-md-inline" style={{background: "rgba(0, 0, 0, 0.7)", borderRadius: "25px", padding: "10px"}} >
                             <h2 className="d-none d-md-block">{detail.title}</h2>
                             <p></p>
                         </div>
